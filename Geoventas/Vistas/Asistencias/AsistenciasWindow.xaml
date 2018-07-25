@@ -1,0 +1,115 @@
+﻿<Window x:Class="GeoventasPocho.Vistas.Asistencias.AsistenciasWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GeoventasPocho.Vistas.Asistencias"
+        mc:Ignorable="d"
+        Title="Asistencias" WindowStartupLocation="CenterScreen" WindowStyle="ToolWindow" SizeToContent="WidthAndHeight" >
+    <Grid>
+        <Grid
+            Margin="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="50" />
+                <RowDefinition Height="20" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="400" />
+                <ColumnDefinition Width="400" />
+            </Grid.ColumnDefinitions>
+            <Label
+                Grid.Row="0" Grid.Column="0"
+                Content="Hiller S.A."
+                FontSize="28" FontWeight="SemiBold" HorizontalAlignment="Center" VerticalAlignment="Top" FontStyle="Italic" Padding="0" HorizontalContentAlignment="Center"/>
+            <Label
+                Grid.Row="0" Grid.Column="1"
+                Content="Alta Distribución S.A."
+                FontSize="28" FontWeight="SemiBold" HorizontalAlignment="Center" VerticalAlignment="Top" FontStyle="Italic" Padding="0" HorizontalContentAlignment="Center"/>
+            <StackPanel
+                ScrollViewer.CanContentScroll="True"
+                Grid.Row="1" Grid.Column="0">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="200"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="200"/>
+                    </Grid.RowDefinitions>
+                    <Label 
+                        Grid.Row="0"
+                        FontSize="22" FontWeight="SemiBold" HorizontalAlignment="Center" VerticalAlignment="Top" FontStyle="Italic" Padding="0" HorizontalContentAlignment="Center"
+                        Content="PRESENTES"/>
+                    <ListBox
+                        Grid.Row="1"
+                        Margin="0,5,10,5"
+                        ItemsSource="{Binding PresentesHiller,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" FontSize="16" HorizontalContentAlignment="Center"/>
+                    <Label 
+                        Grid.Row="2"
+                        FontSize="22" FontWeight="SemiBold" HorizontalAlignment="Center" VerticalAlignment="Top" FontStyle="Italic" Padding="0" HorizontalContentAlignment="Center"
+                        Content="AUSENTES"/>
+                    <ListBox
+                        Grid.Row="3"
+                        Margin="5"
+                        ItemsSource="{Binding AusentesHiller,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" FontSize="16" HorizontalContentAlignment="Center"/>
+                </Grid>
+            </StackPanel>
+            <StackPanel
+                ScrollViewer.CanContentScroll="True"
+                Grid.Row="1" Grid.Column="1">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="200"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="200"/>
+                    </Grid.RowDefinitions>
+                    <Label 
+                        Grid.Row="0"
+                        FontSize="22" FontWeight="SemiBold" HorizontalAlignment="Center" VerticalAlignment="Top" FontStyle="Italic" Padding="0" HorizontalContentAlignment="Center"
+                        Content="PRESENTES"/>
+                    <ListBox
+                        Grid.Row="1"
+                        Margin="5"
+                        ItemsSource="{Binding PresentesAlta,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" FontSize="16" HorizontalContentAlignment="Center"/>
+                    <Label 
+                        Grid.Row="2"
+                        FontSize="22" FontWeight="SemiBold" HorizontalAlignment="Center" VerticalAlignment="Top" FontStyle="Italic" Padding="0" HorizontalContentAlignment="Center"
+                        Content="AUSENTES"/>
+                    <ListBox
+                        Grid.Row="3"
+                        Margin="5"
+                        ItemsSource="{Binding AusentesAlta,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" FontSize="16" HorizontalContentAlignment="Center"/>
+                </Grid>
+            </StackPanel>
+            <StackPanel
+                Orientation="Horizontal"
+                HorizontalAlignment="Center"
+                Grid.Row="2" Grid.ColumnSpan="2">
+                <Button
+                    Name="btnImprimeHiller"
+                    Width="150" Height="30"
+                    Margin="20,5"
+                    Content="Imprimir Hiller"
+                    Click="btnImprimeHiller_Click"/>
+                <Button
+                    Width="150" Height="30"
+                    Name="btnRefrescar"
+                    Margin="20,5"
+                    Content="REFRESCAR"
+                    Click="btnRefrescar_Click"/>
+                <Button
+                    Name="btnImprimeAlta"
+                    Width="150" Height="30"
+                    Margin="20,5"
+                    Content="Imprimir Alta"
+                    Click="btnImprimeAlta_Click"/>
+            </StackPanel>
+            <ProgressBar
+                Grid.Row="3" Grid.ColumnSpan="2"
+                Visibility="Collapsed"
+                Name="progress"/>
+        </Grid>
+    </Grid>
+</Window>

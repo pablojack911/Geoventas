@@ -1,0 +1,38 @@
+﻿<Window x:Class="GeoventasPocho.Vistas.Geocoder.GeocodificadorDeCalles"
+         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GeoventasPocho.Vistas.Geocoder"
+        mc:Ignorable="d"
+        Title="Geocodificador de Clientes" SizeToContent="WidthAndHeight" WindowStartupLocation="CenterScreen" FontSize="21.333" >
+    <StackPanel
+        Margin="10">
+        <Label
+            Content="Actualizando coordenadas de los clientes"
+            Margin="0,0,0,10"/>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Label
+                Content="A partir del código:"
+                Grid.Column="0"/>
+            <TextBox
+                Name="txtCodigo"
+                Grid.Column="1"/>
+        </Grid>
+        <Button
+            Name="btnIniciar"
+            Content="INICIAR"
+            Padding="20"
+            Margin="130,10"
+            Click="btnIniciar_Click" IsDefault="True"/>
+        <ListBox 
+            ItemsSource="{Binding clientesactualizados, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+            Height="200"
+            ScrollViewer.CanContentScroll="True"
+            ScrollViewer.VerticalScrollBarVisibility="Auto"/>
+    </StackPanel>
+</Window>

@@ -1,0 +1,58 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeoventasPocho", "Geoventas\GeoventasPocho.csproj", "{D0D4F19C-581B-4DF5-A376-E964C1169100}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MatrizDeAhorroWPF", "..\MatrizDeAhorroWPF\MatrizDeAhorroWPF\MatrizDeAhorroWPF.csproj", "{AA8856CF-F2B7-4CB8-BCCC-7DC9E74A4DA1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZonasPorKml", "ZonasPorKml\ZonasPorKml.csproj", "{2E7A12CF-925F-4140-88CE-0957B3F505A5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AgruparClientesPorFleteros", "AgruparClientesPorFleteros\AgruparClientesPorFleteros.csproj", "{504CD539-DFB7-48A3-81A7-E9461B43CEFA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZonasLogisticasClientes", "ZonasLogisticasClientes\ZonasLogisticasClientes.csproj", "{429D16E7-F985-4DB4-8622-FE83DC14C733}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZonasComercialesClientes", "ZonasComercialesClientes\ZonasComercialesClientes.csproj", "{5054BDF5-9F14-414C-9E9B-5DFCB919A578}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AgrupaClientesPorZona", "AgrupaClientesPorZona\AgrupaClientesPorZona.csproj", "{AF934565-303B-4241-88AE-EC89F5B5E281}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D0D4F19C-581B-4DF5-A376-E964C1169100}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D0D4F19C-581B-4DF5-A376-E964C1169100}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D0D4F19C-581B-4DF5-A376-E964C1169100}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D0D4F19C-581B-4DF5-A376-E964C1169100}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AA8856CF-F2B7-4CB8-BCCC-7DC9E74A4DA1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA8856CF-F2B7-4CB8-BCCC-7DC9E74A4DA1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA8856CF-F2B7-4CB8-BCCC-7DC9E74A4DA1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA8856CF-F2B7-4CB8-BCCC-7DC9E74A4DA1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2E7A12CF-925F-4140-88CE-0957B3F505A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E7A12CF-925F-4140-88CE-0957B3F505A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E7A12CF-925F-4140-88CE-0957B3F505A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E7A12CF-925F-4140-88CE-0957B3F505A5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{504CD539-DFB7-48A3-81A7-E9461B43CEFA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{504CD539-DFB7-48A3-81A7-E9461B43CEFA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{504CD539-DFB7-48A3-81A7-E9461B43CEFA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{504CD539-DFB7-48A3-81A7-E9461B43CEFA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{429D16E7-F985-4DB4-8622-FE83DC14C733}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{429D16E7-F985-4DB4-8622-FE83DC14C733}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{429D16E7-F985-4DB4-8622-FE83DC14C733}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{429D16E7-F985-4DB4-8622-FE83DC14C733}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5054BDF5-9F14-414C-9E9B-5DFCB919A578}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5054BDF5-9F14-414C-9E9B-5DFCB919A578}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5054BDF5-9F14-414C-9E9B-5DFCB919A578}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5054BDF5-9F14-414C-9E9B-5DFCB919A578}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AF934565-303B-4241-88AE-EC89F5B5E281}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AF934565-303B-4241-88AE-EC89F5B5E281}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AF934565-303B-4241-88AE-EC89F5B5E281}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AF934565-303B-4241-88AE-EC89F5B5E281}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

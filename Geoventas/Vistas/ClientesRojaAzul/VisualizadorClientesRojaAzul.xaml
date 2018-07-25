@@ -1,0 +1,81 @@
+﻿<Window x:Class="GeoventasPocho.Vistas.ClientesRojaAzul.VisualizadorClientesRojaAzul"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GeoventasPocho.Vistas.ZonasClientes"
+        xmlns:gmap="clr-namespace:GeoventasPocho.Vistas.ElementosMapa"
+        xmlns:m="clr-namespace:GeoventasPocho.Vistas.Converters"
+        mc:Ignorable="d"
+        Title="Clientes Roja - Azul" WindowStartupLocation="CenterScreen" WindowState="Maximized">
+    <Window.Resources>
+        <m:EmpresaConverter x:Key="empresaConverter"></m:EmpresaConverter>
+        <m:ColorEmpresaConverter x:Key="colorEmpresaConverter"></m:ColorEmpresaConverter>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="75*"></ColumnDefinition>
+            <ColumnDefinition Width="5"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Menu
+            Grid.ColumnSpan="5"
+            Grid.Row="0" 
+            FontSize="21.333"
+            Name="menues">
+
+            <MenuItem Header="FILTRO DE CLIENTES">
+                <MenuItem
+                    Name="btnTodos"
+                    Header="TODOS"
+                    Click="btnTodos_Click"/>
+                <MenuItem
+                    Name="btnConRecorrido"
+                    Header="CON RECORRIDO"
+                    Click="btnConRecorrido_Click"/>
+                <MenuItem
+                    Name="btnSinRecorrido"
+                    Header="SIN RECORRIDO"
+                    Click="btnSinRecorrido_Click"/>
+                <MenuItem
+                    Name="btnOcultarClientes"
+                    Header="OCULTAR CLIENTES"
+                    Click="btnOcultarClientes_Click"/>
+            </MenuItem>
+        </Menu>
+
+        <gmap:Mapa
+            Grid.Row="1"
+            Grid.RowSpan="2"
+            Grid.Column="0"
+            x:Name="mapa"/>
+
+        <GridSplitter 
+            Grid.Column="1"
+            Grid.Row="1"
+            Grid.RowSpan="3" 
+            HorizontalAlignment="Stretch" 
+            Name="gridSplitter2" 
+            Width="5" 
+            Focusable="False" />
+
+        <local:ClientesDeZona
+            x:Name="clientesUC"
+            Grid.Column="2"
+            Grid.Row="1"
+            Grid.RowSpan="2"/>
+
+        <ProgressBar
+            Grid.ColumnSpan="3"
+            Grid.Row="2"
+            Name="progress"
+            Visibility="Collapsed"
+            />
+    </Grid>
+</Window>

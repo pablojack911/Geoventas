@@ -1,0 +1,58 @@
+﻿<Window x:Class="GeoventasPocho.Vistas.MapaConsulta.VisualizadorClientesPorConsulta"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GeoventasPocho.Vistas.MapaConsulta"
+        xmlns:gmap="clr-namespace:GeoventasPocho.Vistas.ElementosMapa"
+        mc:Ignorable="d"
+        Title="Visualizador de Clientes por Consulta">
+    <Grid
+        Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="120" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <StackPanel
+            Orientation="Vertical"
+            Grid.Row="0">
+            <StackPanel
+                Orientation="Horizontal" 
+                HorizontalAlignment="Center"
+                Margin="10">
+                <Label
+                    Content="QUERY"/>
+                <TextBox
+                    Name="consulta"
+                    Width="380" Height="60" Margin="15,0,15,0"
+                    VerticalAlignment="Center" HorizontalAlignment="Center"
+                    Text="{Binding query,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" AcceptsReturn="True" AcceptsTab="True"/>
+            </StackPanel>
+            <Button
+                Name="btnConsultar"
+                Width="150" Height="30"
+                Margin="5"
+                Click="btnConsultar_Click" 
+                Content="BUSCAR"/>
+        </StackPanel>
+        <Grid
+            Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition
+                    Width="180"/>
+                <ColumnDefinition
+                    Width="*"/>
+            </Grid.ColumnDefinitions>
+            <ListBox
+                x:Name="lstListaClientes"
+                Margin="5"
+                ItemsSource="{Binding listaClientes,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+                SelectionChanged="lstListaClientes_SelectionChanged"/>
+            <gmap:Mapa
+                Grid.Column="1"
+                x:Name="mapa"
+                Margin="5"
+                />
+        </Grid>
+    </Grid>
+</Window>

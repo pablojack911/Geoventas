@@ -1,0 +1,92 @@
+﻿<Window x:Class="GeoventasPocho.Vistas.ReportesPorDiaPorVendedor.ReportesPorDiaPorVendedor"
+          xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GeoventasPocho.Vistas.ReportesPorDiaPorVendedor"
+        mc:Ignorable="d"
+        Title="Reportes por día por vendedor" SizeToContent="WidthAndHeight" WindowStyle="ToolWindow" FontSize="21.333" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Background="#FFE4E4E4" Keyboard.KeyDown="Window_KeyDown">
+    <StackPanel
+        Margin="10">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="250"/>
+                <ColumnDefinition Width="250"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition
+                    Height="70"/>
+            </Grid.RowDefinitions>
+            <Label
+                Grid.Row="0"
+                Grid.Column="0"
+                Margin="0,10,0,10"
+                Name="lblSeleccionar"
+                Content="ELEGIR"/>
+            <ComboBox
+                Grid.Row="0"
+                Grid.Column="1"
+                Margin="0,10,0,10"
+                Name="cmbSeleccionar">
+                <ComboBoxItem
+                    Name="cbiTodos"
+                    Content="TODOS"
+                    IsSelected="True"
+                    Selected="cbiTodos_Selected"/>
+                <ComboBoxItem
+                    Name="cbiUno"
+                    Content="FILTRAR POR CODIGO"
+                    Selected="cbiUno_Selected"/>
+            </ComboBox>
+            <Label 
+                Grid.Row="1"
+                Grid.Column="0"
+                Margin="0,10,0,10"
+                Visibility="{Binding Visible, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                Name="lblCodVendedor"
+                Content="Código del vendedor"/>
+            <TextBox
+                Grid.Row="1"
+                Grid.Column="1"
+                Margin="0,10,0,10"
+                Visibility="{Binding Visible, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                TextAlignment="Center"
+                Name="txtCodigoVendedor" 
+                Text="{Binding codigoVendedor, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                KeyUp="txtCodigoVendedor_KeyDown"/>
+            <Label 
+                Grid.Row="2"
+                Grid.Column="0"
+                Margin="0,10,0,10"
+                Name="lblFechaDesde"
+                Content="Fecha desde"/>
+            <DatePicker
+                Grid.Row="2"
+                Grid.Column="1"
+                Margin="0,10,0,10"
+                Name="dtpFechaDesde"/>
+            <Label 
+                Grid.Row="3"
+                Grid.Column="0"
+                Margin="0,10,0,10"
+                Name="lblFechaHasta"
+                Content="Fecha hasta"/>
+            <DatePicker
+                Grid.Row="3"
+                Grid.Column="1"
+                Margin="0,10,0,10"
+                Name="dtpFechaHasta"/>
+            <Button
+                Grid.Row="4"
+                Grid.ColumnSpan="2"
+                Margin="150,10,150,10"
+                Name="btnObtenerPosicionesPorCodigo"
+                Content="Buscar"
+                Click="btnObtenerPosicionesPorCodigo_Click"/>
+        </Grid>
+    </StackPanel>
+</Window>

@@ -1,0 +1,96 @@
+﻿<Window x:Class="GeoventasPocho.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GeoventasPocho"
+        mc:Ignorable="d"
+        Title="Geoventas" WindowState="Maximized">
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="Fondo.jpg" Stretch="UniformToFill"/>
+        </Grid.Background>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition 
+                Height="35"/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Menu FontSize="21.333" >
+            <MenuItem
+                Header="Asistencias">
+                <MenuItem
+                    Header="MOSTRAR"
+                    Name="mnuAsistencias"
+                    Click="mnuAsistencias_Click"/>
+                <!--<MenuItem
+                    Header="Alta Distribución S.A."
+                    Name="mnuasistenciasAlta"
+                    Click="mnuAsistenciasAlta_Click"/>
+                <MenuItem
+                    Header="Hergo S.A."
+                    Name="mnuasistenciasHergo"
+                    Click="mnuasistenciasHergo_Click"/>-->
+            </MenuItem>
+            <MenuItem
+                Header="Preventa">
+                <MenuItem
+                    Name="mnuGeoposicionVendedoresActual"
+                    Header="Posiciones actuales de vendedores"
+                    Click="mnuGeoposicionVendedoresActual_Click"/>
+                <MenuItem
+                    Name="mnuGeoposicionHistoricaVende"
+                    Header="Posiciones históricas"
+                    Click="mnuGeoposicionHistoricaVende_Click"/>
+                <MenuItem
+                    Name="mnuZonas"
+                    Header="Zonas de venta"
+                    Click="mnuZonas_Click"/>
+                <MenuItem
+                    Name="mnuActividades"
+                    Header="Actividades"
+                    Click="mnuActividades_Click"/>
+                <!--<MenuItem
+                    Name="mnuClientesRojoAzul"
+                    Header="Clientes Roja/Azul"
+                    Click="mnuClientesRojoAzul_Click"/>-->
+            </MenuItem>
+            <MenuItem
+                Header="Logística">
+                <MenuItem
+                    Name="mnuPosicionActualLogistica"
+                    Header="Posiciones actuales de fleteros"
+                    Click="mnuPosicionActualLogistica_Click"/>
+                <MenuItem
+                   Name="mnuPosicionHistoricaLogistica"
+                   Header="Historial"
+                   Click="mnuPosicionHistoricaLogistica_Click"/>
+            </MenuItem>
+            <!--<MenuItem
+                Header="Consultar">
+                --><!--<MenuItem
+                    Name="mnuTotalReportesDelDia"
+                    Header="Total reportes en el día"
+                    Click="mnuTotalReportesDelDia_Click"/>--><!--
+                <MenuItem
+                    Name="mnuCreaConsulta"
+                    Header="Mostrar clientes por query a Fox"
+                    Click="mnuCreaConsulta_Click"/>
+            </MenuItem>-->
+            <!--<MenuItem
+                Header="Cargar">
+                <MenuItem
+                    Name="mnuLeerYGrabar"
+                    Header="Leer info de clientes y grabar"
+                    Click="mnuLeerYGrabar_Click"
+                    />
+            </MenuItem>-->
+        </Menu>
+    </Grid>
+</Window>

@@ -1,0 +1,1639 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://www.inteldevmobile.com.ar" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://www.inteldevmobile.com.ar" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.inteldevmobile.com.ar">
+      <s:element name="validarConeccion">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="usuario" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="clave" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="imei" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="validarConeccionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="validarConeccionResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="dameDistri">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="imei" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="dameDistriResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="dameDistriResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="bajarDatosCliente">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="usuario" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="clave" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="imei" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="bajarDatosClienteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="bajarDatosClienteResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="subirDatosCliente">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="usuario" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="clave" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="imei" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="xmlDatos" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="subirDatosClienteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="subirDatosClienteResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="subirNewConvenios">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="usuario" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="clave" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="imei" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="xmlDatos" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="subirNewConveniosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="subirNewConveniosResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="subirNewPrecios">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="usuario" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="clave" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="imei" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="xmlDatos" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="subirNewPreciosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="subirNewPreciosResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="bajarDatosMobile">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="usuario" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="clave" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="imei" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="bajarDatosMobileResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="bajarDatosMobileResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="subirDatosMobile">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="usuario" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="clave" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="imei" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="xmlDatos" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="subirDatosMobileResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="subirDatosMobileResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="bajarDatosCliente2">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="usuario" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="clave" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="imei" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="bajarDatosCliente2Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="bajarDatosCliente2Result" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="bajarDatosCliente3">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="usuario" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="clave" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="imei" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="bajarDatosCliente3Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="bajarDatosCliente3Result" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="bajarDatosCliente4">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="usuario" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="clave" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="imei" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="bajarDatosCliente4Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="bajarDatosCliente4Result" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="subirDatosCliente2">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="usuario" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="clave" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="imei" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="xmlDatos" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="subirDatosCliente2Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="subirDatosCliente2Result" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="bajarDatosMobile2">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="usuario" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="clave" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="imei" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="bajarDatosMobile2Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="bajarDatosMobile2Result" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="subirDatosCliente3">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="usuario" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="clave" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="imei" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="xmlDatos" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="subirDatosCliente3Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="subirDatosCliente3Result" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="bajarDatosMobile3parte1">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="usuario" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="clave" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="imei" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="bajarDatosMobile3parte1Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="bajarDatosMobile3parte1Result" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="bajarDatosMobile3parte2">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="usuario" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="clave" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="imei" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="bajarDatosMobile3parte2Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="bajarDatosMobile3parte2Result" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="bajarDatosMobileZip">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="usuario" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="clave" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="imei" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="bajarDatosMobileZipResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="bajarDatosMobileZipResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="subirDatosMobile2">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="usuario" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="clave" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="imei" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="xmlDatos" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="subirDatosMobile2Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="subirDatosMobile2Result" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="subirDatosMobile3">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="usuario" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="clave" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="imei" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="xmlDatos" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="subirDatosMobile3Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="subirDatosMobile3Result" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="execQueryReturn">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="miQuery" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="execQueryReturnResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="execQueryReturnResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="actualizaFechaDownLoad">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="usuario" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="clave" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="imei" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="actualizaFechaDownLoadResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="actualizaFechaDownLoadResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="borraXml">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cFile" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="borraXmlResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="borraXmlResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="hola">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="mensaje" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="holaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="holaResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CunsultarPorCodigoDeBarra2">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="codigobarra" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CunsultarPorCodigoDeBarra2Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CunsultarPorCodigoDeBarra2Result" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="devuelvefecha">
+        <s:complexType />
+      </s:element>
+      <s:element name="devuelvefechaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="devuelvefechaResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ActualizarPosicion">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="usuario" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="fecha" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="lat" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="lng" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="estado" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="cliente" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="motivonocompra" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ActualizarPosicionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ActualizarPosicionResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ActualizarPosicionTest">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="usuario" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="fecha" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="lat" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="lng" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="estado" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="cliente" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="motivonocompra" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pesos" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="bultos" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ActualizarPosicionTestResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ActualizarPosicionTestResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ActualizarPosicionTestImei">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="usuario" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="fecha" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="lat" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="lng" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="estado" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="cliente" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="motivonocompra" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pesos" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="bultos" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="imei" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ActualizarPosicionTestImeiResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ActualizarPosicionTestImeiResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ActualizarLastDownload">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="imei" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="fecha" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ActualizarLastDownloadResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ActualizarLastDownloadResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ActualizarLastDownloadATodas">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="fecha" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ActualizarLastDownloadATodasResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ActualizarLastDownloadATodasResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerPosicionActualPreventistas">
+        <s:complexType />
+      </s:element>
+      <s:element name="ObtenerPosicionActualPreventistasResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObtenerPosicionActualPreventistasResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerPosicionesDelPreventista">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="usuario" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="fechaDesde" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="fechaHasta" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerPosicionesDelPreventistaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObtenerPosicionesDelPreventistaResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerVendedoresPorDia">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="fechaDesde" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="fechaHasta" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerVendedoresPorDiaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObtenerVendedoresPorDiaResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerPrimerClienteVisitado">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="usuario" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="fechaDesde" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="fechaHasta" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerPrimerClienteVisitadoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObtenerPrimerClienteVisitadoResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerPreventistasPorEmpresa">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="empresa" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerPreventistasPorEmpresaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObtenerPreventistasPorEmpresaResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SubirFotoCliente">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="usuario" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="cliente" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="foto" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SubirFotoClienteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SubirFotoClienteResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="validarConeccionSoapIn">
+    <wsdl:part name="parameters" element="tns:validarConeccion" />
+  </wsdl:message>
+  <wsdl:message name="validarConeccionSoapOut">
+    <wsdl:part name="parameters" element="tns:validarConeccionResponse" />
+  </wsdl:message>
+  <wsdl:message name="dameDistriSoapIn">
+    <wsdl:part name="parameters" element="tns:dameDistri" />
+  </wsdl:message>
+  <wsdl:message name="dameDistriSoapOut">
+    <wsdl:part name="parameters" element="tns:dameDistriResponse" />
+  </wsdl:message>
+  <wsdl:message name="bajarDatosClienteSoapIn">
+    <wsdl:part name="parameters" element="tns:bajarDatosCliente" />
+  </wsdl:message>
+  <wsdl:message name="bajarDatosClienteSoapOut">
+    <wsdl:part name="parameters" element="tns:bajarDatosClienteResponse" />
+  </wsdl:message>
+  <wsdl:message name="subirDatosClienteSoapIn">
+    <wsdl:part name="parameters" element="tns:subirDatosCliente" />
+  </wsdl:message>
+  <wsdl:message name="subirDatosClienteSoapOut">
+    <wsdl:part name="parameters" element="tns:subirDatosClienteResponse" />
+  </wsdl:message>
+  <wsdl:message name="subirNewConveniosSoapIn">
+    <wsdl:part name="parameters" element="tns:subirNewConvenios" />
+  </wsdl:message>
+  <wsdl:message name="subirNewConveniosSoapOut">
+    <wsdl:part name="parameters" element="tns:subirNewConveniosResponse" />
+  </wsdl:message>
+  <wsdl:message name="subirNewPreciosSoapIn">
+    <wsdl:part name="parameters" element="tns:subirNewPrecios" />
+  </wsdl:message>
+  <wsdl:message name="subirNewPreciosSoapOut">
+    <wsdl:part name="parameters" element="tns:subirNewPreciosResponse" />
+  </wsdl:message>
+  <wsdl:message name="bajarDatosMobileSoapIn">
+    <wsdl:part name="parameters" element="tns:bajarDatosMobile" />
+  </wsdl:message>
+  <wsdl:message name="bajarDatosMobileSoapOut">
+    <wsdl:part name="parameters" element="tns:bajarDatosMobileResponse" />
+  </wsdl:message>
+  <wsdl:message name="subirDatosMobileSoapIn">
+    <wsdl:part name="parameters" element="tns:subirDatosMobile" />
+  </wsdl:message>
+  <wsdl:message name="subirDatosMobileSoapOut">
+    <wsdl:part name="parameters" element="tns:subirDatosMobileResponse" />
+  </wsdl:message>
+  <wsdl:message name="bajarDatosCliente2SoapIn">
+    <wsdl:part name="parameters" element="tns:bajarDatosCliente2" />
+  </wsdl:message>
+  <wsdl:message name="bajarDatosCliente2SoapOut">
+    <wsdl:part name="parameters" element="tns:bajarDatosCliente2Response" />
+  </wsdl:message>
+  <wsdl:message name="bajarDatosCliente3SoapIn">
+    <wsdl:part name="parameters" element="tns:bajarDatosCliente3" />
+  </wsdl:message>
+  <wsdl:message name="bajarDatosCliente3SoapOut">
+    <wsdl:part name="parameters" element="tns:bajarDatosCliente3Response" />
+  </wsdl:message>
+  <wsdl:message name="bajarDatosCliente4SoapIn">
+    <wsdl:part name="parameters" element="tns:bajarDatosCliente4" />
+  </wsdl:message>
+  <wsdl:message name="bajarDatosCliente4SoapOut">
+    <wsdl:part name="parameters" element="tns:bajarDatosCliente4Response" />
+  </wsdl:message>
+  <wsdl:message name="subirDatosCliente2SoapIn">
+    <wsdl:part name="parameters" element="tns:subirDatosCliente2" />
+  </wsdl:message>
+  <wsdl:message name="subirDatosCliente2SoapOut">
+    <wsdl:part name="parameters" element="tns:subirDatosCliente2Response" />
+  </wsdl:message>
+  <wsdl:message name="bajarDatosMobile2SoapIn">
+    <wsdl:part name="parameters" element="tns:bajarDatosMobile2" />
+  </wsdl:message>
+  <wsdl:message name="bajarDatosMobile2SoapOut">
+    <wsdl:part name="parameters" element="tns:bajarDatosMobile2Response" />
+  </wsdl:message>
+  <wsdl:message name="subirDatosCliente3SoapIn">
+    <wsdl:part name="parameters" element="tns:subirDatosCliente3" />
+  </wsdl:message>
+  <wsdl:message name="subirDatosCliente3SoapOut">
+    <wsdl:part name="parameters" element="tns:subirDatosCliente3Response" />
+  </wsdl:message>
+  <wsdl:message name="bajarDatosMobile3parte1SoapIn">
+    <wsdl:part name="parameters" element="tns:bajarDatosMobile3parte1" />
+  </wsdl:message>
+  <wsdl:message name="bajarDatosMobile3parte1SoapOut">
+    <wsdl:part name="parameters" element="tns:bajarDatosMobile3parte1Response" />
+  </wsdl:message>
+  <wsdl:message name="bajarDatosMobile3parte2SoapIn">
+    <wsdl:part name="parameters" element="tns:bajarDatosMobile3parte2" />
+  </wsdl:message>
+  <wsdl:message name="bajarDatosMobile3parte2SoapOut">
+    <wsdl:part name="parameters" element="tns:bajarDatosMobile3parte2Response" />
+  </wsdl:message>
+  <wsdl:message name="bajarDatosMobileZipSoapIn">
+    <wsdl:part name="parameters" element="tns:bajarDatosMobileZip" />
+  </wsdl:message>
+  <wsdl:message name="bajarDatosMobileZipSoapOut">
+    <wsdl:part name="parameters" element="tns:bajarDatosMobileZipResponse" />
+  </wsdl:message>
+  <wsdl:message name="subirDatosMobile2SoapIn">
+    <wsdl:part name="parameters" element="tns:subirDatosMobile2" />
+  </wsdl:message>
+  <wsdl:message name="subirDatosMobile2SoapOut">
+    <wsdl:part name="parameters" element="tns:subirDatosMobile2Response" />
+  </wsdl:message>
+  <wsdl:message name="subirDatosMobile3SoapIn">
+    <wsdl:part name="parameters" element="tns:subirDatosMobile3" />
+  </wsdl:message>
+  <wsdl:message name="subirDatosMobile3SoapOut">
+    <wsdl:part name="parameters" element="tns:subirDatosMobile3Response" />
+  </wsdl:message>
+  <wsdl:message name="execQueryReturnSoapIn">
+    <wsdl:part name="parameters" element="tns:execQueryReturn" />
+  </wsdl:message>
+  <wsdl:message name="execQueryReturnSoapOut">
+    <wsdl:part name="parameters" element="tns:execQueryReturnResponse" />
+  </wsdl:message>
+  <wsdl:message name="actualizaFechaDownLoadSoapIn">
+    <wsdl:part name="parameters" element="tns:actualizaFechaDownLoad" />
+  </wsdl:message>
+  <wsdl:message name="actualizaFechaDownLoadSoapOut">
+    <wsdl:part name="parameters" element="tns:actualizaFechaDownLoadResponse" />
+  </wsdl:message>
+  <wsdl:message name="borraXmlSoapIn">
+    <wsdl:part name="parameters" element="tns:borraXml" />
+  </wsdl:message>
+  <wsdl:message name="borraXmlSoapOut">
+    <wsdl:part name="parameters" element="tns:borraXmlResponse" />
+  </wsdl:message>
+  <wsdl:message name="holaSoapIn">
+    <wsdl:part name="parameters" element="tns:hola" />
+  </wsdl:message>
+  <wsdl:message name="holaSoapOut">
+    <wsdl:part name="parameters" element="tns:holaResponse" />
+  </wsdl:message>
+  <wsdl:message name="CunsultarPorCodigoDeBarra2SoapIn">
+    <wsdl:part name="parameters" element="tns:CunsultarPorCodigoDeBarra2" />
+  </wsdl:message>
+  <wsdl:message name="CunsultarPorCodigoDeBarra2SoapOut">
+    <wsdl:part name="parameters" element="tns:CunsultarPorCodigoDeBarra2Response" />
+  </wsdl:message>
+  <wsdl:message name="devuelvefechaSoapIn">
+    <wsdl:part name="parameters" element="tns:devuelvefecha" />
+  </wsdl:message>
+  <wsdl:message name="devuelvefechaSoapOut">
+    <wsdl:part name="parameters" element="tns:devuelvefechaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ActualizarPosicionSoapIn">
+    <wsdl:part name="parameters" element="tns:ActualizarPosicion" />
+  </wsdl:message>
+  <wsdl:message name="ActualizarPosicionSoapOut">
+    <wsdl:part name="parameters" element="tns:ActualizarPosicionResponse" />
+  </wsdl:message>
+  <wsdl:message name="ActualizarPosicionTestSoapIn">
+    <wsdl:part name="parameters" element="tns:ActualizarPosicionTest" />
+  </wsdl:message>
+  <wsdl:message name="ActualizarPosicionTestSoapOut">
+    <wsdl:part name="parameters" element="tns:ActualizarPosicionTestResponse" />
+  </wsdl:message>
+  <wsdl:message name="ActualizarPosicionTestImeiSoapIn">
+    <wsdl:part name="parameters" element="tns:ActualizarPosicionTestImei" />
+  </wsdl:message>
+  <wsdl:message name="ActualizarPosicionTestImeiSoapOut">
+    <wsdl:part name="parameters" element="tns:ActualizarPosicionTestImeiResponse" />
+  </wsdl:message>
+  <wsdl:message name="ActualizarLastDownloadSoapIn">
+    <wsdl:part name="parameters" element="tns:ActualizarLastDownload" />
+  </wsdl:message>
+  <wsdl:message name="ActualizarLastDownloadSoapOut">
+    <wsdl:part name="parameters" element="tns:ActualizarLastDownloadResponse" />
+  </wsdl:message>
+  <wsdl:message name="ActualizarLastDownloadATodasSoapIn">
+    <wsdl:part name="parameters" element="tns:ActualizarLastDownloadATodas" />
+  </wsdl:message>
+  <wsdl:message name="ActualizarLastDownloadATodasSoapOut">
+    <wsdl:part name="parameters" element="tns:ActualizarLastDownloadATodasResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerPosicionActualPreventistasSoapIn">
+    <wsdl:part name="parameters" element="tns:ObtenerPosicionActualPreventistas" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerPosicionActualPreventistasSoapOut">
+    <wsdl:part name="parameters" element="tns:ObtenerPosicionActualPreventistasResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerPosicionesDelPreventistaSoapIn">
+    <wsdl:part name="parameters" element="tns:ObtenerPosicionesDelPreventista" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerPosicionesDelPreventistaSoapOut">
+    <wsdl:part name="parameters" element="tns:ObtenerPosicionesDelPreventistaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerVendedoresPorDiaSoapIn">
+    <wsdl:part name="parameters" element="tns:ObtenerVendedoresPorDia" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerVendedoresPorDiaSoapOut">
+    <wsdl:part name="parameters" element="tns:ObtenerVendedoresPorDiaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerPrimerClienteVisitadoSoapIn">
+    <wsdl:part name="parameters" element="tns:ObtenerPrimerClienteVisitado" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerPrimerClienteVisitadoSoapOut">
+    <wsdl:part name="parameters" element="tns:ObtenerPrimerClienteVisitadoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerPreventistasPorEmpresaSoapIn">
+    <wsdl:part name="parameters" element="tns:ObtenerPreventistasPorEmpresa" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerPreventistasPorEmpresaSoapOut">
+    <wsdl:part name="parameters" element="tns:ObtenerPreventistasPorEmpresaResponse" />
+  </wsdl:message>
+  <wsdl:message name="SubirFotoClienteSoapIn">
+    <wsdl:part name="parameters" element="tns:SubirFotoCliente" />
+  </wsdl:message>
+  <wsdl:message name="SubirFotoClienteSoapOut">
+    <wsdl:part name="parameters" element="tns:SubirFotoClienteResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ServiceSoap">
+    <wsdl:operation name="validarConeccion">
+      <wsdl:input message="tns:validarConeccionSoapIn" />
+      <wsdl:output message="tns:validarConeccionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="dameDistri">
+      <wsdl:input message="tns:dameDistriSoapIn" />
+      <wsdl:output message="tns:dameDistriSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="bajarDatosCliente">
+      <wsdl:input message="tns:bajarDatosClienteSoapIn" />
+      <wsdl:output message="tns:bajarDatosClienteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="subirDatosCliente">
+      <wsdl:input message="tns:subirDatosClienteSoapIn" />
+      <wsdl:output message="tns:subirDatosClienteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="subirNewConvenios">
+      <wsdl:input message="tns:subirNewConveniosSoapIn" />
+      <wsdl:output message="tns:subirNewConveniosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="subirNewPrecios">
+      <wsdl:input message="tns:subirNewPreciosSoapIn" />
+      <wsdl:output message="tns:subirNewPreciosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="bajarDatosMobile">
+      <wsdl:input message="tns:bajarDatosMobileSoapIn" />
+      <wsdl:output message="tns:bajarDatosMobileSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="subirDatosMobile">
+      <wsdl:input message="tns:subirDatosMobileSoapIn" />
+      <wsdl:output message="tns:subirDatosMobileSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="bajarDatosCliente2">
+      <wsdl:input message="tns:bajarDatosCliente2SoapIn" />
+      <wsdl:output message="tns:bajarDatosCliente2SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="bajarDatosCliente3">
+      <wsdl:input message="tns:bajarDatosCliente3SoapIn" />
+      <wsdl:output message="tns:bajarDatosCliente3SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="bajarDatosCliente4">
+      <wsdl:input message="tns:bajarDatosCliente4SoapIn" />
+      <wsdl:output message="tns:bajarDatosCliente4SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="subirDatosCliente2">
+      <wsdl:input message="tns:subirDatosCliente2SoapIn" />
+      <wsdl:output message="tns:subirDatosCliente2SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="bajarDatosMobile2">
+      <wsdl:input message="tns:bajarDatosMobile2SoapIn" />
+      <wsdl:output message="tns:bajarDatosMobile2SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="subirDatosCliente3">
+      <wsdl:input message="tns:subirDatosCliente3SoapIn" />
+      <wsdl:output message="tns:subirDatosCliente3SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="bajarDatosMobile3parte1">
+      <wsdl:input message="tns:bajarDatosMobile3parte1SoapIn" />
+      <wsdl:output message="tns:bajarDatosMobile3parte1SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="bajarDatosMobile3parte2">
+      <wsdl:input message="tns:bajarDatosMobile3parte2SoapIn" />
+      <wsdl:output message="tns:bajarDatosMobile3parte2SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="bajarDatosMobileZip">
+      <wsdl:input message="tns:bajarDatosMobileZipSoapIn" />
+      <wsdl:output message="tns:bajarDatosMobileZipSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="subirDatosMobile2">
+      <wsdl:input message="tns:subirDatosMobile2SoapIn" />
+      <wsdl:output message="tns:subirDatosMobile2SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="subirDatosMobile3">
+      <wsdl:input message="tns:subirDatosMobile3SoapIn" />
+      <wsdl:output message="tns:subirDatosMobile3SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="execQueryReturn">
+      <wsdl:input message="tns:execQueryReturnSoapIn" />
+      <wsdl:output message="tns:execQueryReturnSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="actualizaFechaDownLoad">
+      <wsdl:input message="tns:actualizaFechaDownLoadSoapIn" />
+      <wsdl:output message="tns:actualizaFechaDownLoadSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="borraXml">
+      <wsdl:input message="tns:borraXmlSoapIn" />
+      <wsdl:output message="tns:borraXmlSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="hola">
+      <wsdl:input message="tns:holaSoapIn" />
+      <wsdl:output message="tns:holaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CunsultarPorCodigoDeBarra2">
+      <wsdl:input message="tns:CunsultarPorCodigoDeBarra2SoapIn" />
+      <wsdl:output message="tns:CunsultarPorCodigoDeBarra2SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="devuelvefecha">
+      <wsdl:input message="tns:devuelvefechaSoapIn" />
+      <wsdl:output message="tns:devuelvefechaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ActualizarPosicion">
+      <wsdl:input message="tns:ActualizarPosicionSoapIn" />
+      <wsdl:output message="tns:ActualizarPosicionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ActualizarPosicionTest">
+      <wsdl:input message="tns:ActualizarPosicionTestSoapIn" />
+      <wsdl:output message="tns:ActualizarPosicionTestSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ActualizarPosicionTestImei">
+      <wsdl:input message="tns:ActualizarPosicionTestImeiSoapIn" />
+      <wsdl:output message="tns:ActualizarPosicionTestImeiSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ActualizarLastDownload">
+      <wsdl:input message="tns:ActualizarLastDownloadSoapIn" />
+      <wsdl:output message="tns:ActualizarLastDownloadSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ActualizarLastDownloadATodas">
+      <wsdl:input message="tns:ActualizarLastDownloadATodasSoapIn" />
+      <wsdl:output message="tns:ActualizarLastDownloadATodasSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerPosicionActualPreventistas">
+      <wsdl:input message="tns:ObtenerPosicionActualPreventistasSoapIn" />
+      <wsdl:output message="tns:ObtenerPosicionActualPreventistasSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerPosicionesDelPreventista">
+      <wsdl:input message="tns:ObtenerPosicionesDelPreventistaSoapIn" />
+      <wsdl:output message="tns:ObtenerPosicionesDelPreventistaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerVendedoresPorDia">
+      <wsdl:input message="tns:ObtenerVendedoresPorDiaSoapIn" />
+      <wsdl:output message="tns:ObtenerVendedoresPorDiaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerPrimerClienteVisitado">
+      <wsdl:input message="tns:ObtenerPrimerClienteVisitadoSoapIn" />
+      <wsdl:output message="tns:ObtenerPrimerClienteVisitadoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerPreventistasPorEmpresa">
+      <wsdl:input message="tns:ObtenerPreventistasPorEmpresaSoapIn" />
+      <wsdl:output message="tns:ObtenerPreventistasPorEmpresaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SubirFotoCliente">
+      <wsdl:input message="tns:SubirFotoClienteSoapIn" />
+      <wsdl:output message="tns:SubirFotoClienteSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ServiceSoap" type="tns:ServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="validarConeccion">
+      <soap:operation soapAction="http://www.inteldevmobile.com.ar/validarConeccion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="dameDistri">
+      <soap:operation soapAction="http://www.inteldevmobile.com.ar/dameDistri" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="bajarDatosCliente">
+      <soap:operation soapAction="http://www.inteldevmobile.com.ar/bajarDatosCliente" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="subirDatosCliente">
+      <soap:operation soapAction="http://www.inteldevmobile.com.ar/subirDatosCliente" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="subirNewConvenios">
+      <soap:operation soapAction="http://www.inteldevmobile.com.ar/subirNewConvenios" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="subirNewPrecios">
+      <soap:operation soapAction="http://www.inteldevmobile.com.ar/subirNewPrecios" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="bajarDatosMobile">
+      <soap:operation soapAction="http://www.inteldevmobile.com.ar/bajarDatosMobile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="subirDatosMobile">
+      <soap:operation soapAction="http://www.inteldevmobile.com.ar/subirDatosMobile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="bajarDatosCliente2">
+      <soap:operation soapAction="http://www.inteldevmobile.com.ar/bajarDatosCliente2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="bajarDatosCliente3">
+      <soap:operation soapAction="http://www.inteldevmobile.com.ar/bajarDatosCliente3" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="bajarDatosCliente4">
+      <soap:operation soapAction="http://www.inteldevmobile.com.ar/bajarDatosCliente4" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="subirDatosCliente2">
+      <soap:operation soapAction="http://www.inteldevmobile.com.ar/subirDatosCliente2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="bajarDatosMobile2">
+      <soap:operation soapAction="http://www.inteldevmobile.com.ar/bajarDatosMobile2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="subirDatosCliente3">
+      <soap:operation soapAction="http://www.inteldevmobile.com.ar/subirDatosCliente3" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="bajarDatosMobile3parte1">
+      <soap:operation soapAction="http://www.inteldevmobile.com.ar/bajarDatosMobile3parte1" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="bajarDatosMobile3parte2">
+      <soap:operation soapAction="http://www.inteldevmobile.com.ar/bajarDatosMobile3parte2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="bajarDatosMobileZip">
+      <soap:operation soapAction="http://www.inteldevmobile.com.ar/bajarDatosMobileZip" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="subirDatosMobile2">
+      <soap:operation soapAction="http://www.inteldevmobile.com.ar/subirDatosMobile2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="subirDatosMobile3">
+      <soap:operation soapAction="http://www.inteldevmobile.com.ar/subirDatosMobile3" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="execQueryReturn">
+      <soap:operation soapAction="http://www.inteldevmobile.com.ar/execQueryReturn" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="actualizaFechaDownLoad">
+      <soap:operation soapAction="http://www.inteldevmobile.com.ar/actualizaFechaDownLoad" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="borraXml">
+      <soap:operation soapAction="http://www.inteldevmobile.com.ar/borraXml" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="hola">
+      <soap:operation soapAction="http://www.inteldevmobile.com.ar/hola" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CunsultarPorCodigoDeBarra2">
+      <soap:operation soapAction="http://www.inteldevmobile.com.ar/CunsultarPorCodigoDeBarra2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="devuelvefecha">
+      <soap:operation soapAction="http://www.inteldevmobile.com.ar/devuelvefecha" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ActualizarPosicion">
+      <soap:operation soapAction="http://www.inteldevmobile.com.ar/ActualizarPosicion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ActualizarPosicionTest">
+      <soap:operation soapAction="http://www.inteldevmobile.com.ar/ActualizarPosicionTest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ActualizarPosicionTestImei">
+      <soap:operation soapAction="http://www.inteldevmobile.com.ar/ActualizarPosicionTestImei" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ActualizarLastDownload">
+      <soap:operation soapAction="http://www.inteldevmobile.com.ar/ActualizarLastDownload" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ActualizarLastDownloadATodas">
+      <soap:operation soapAction="http://www.inteldevmobile.com.ar/ActualizarLastDownloadATodas" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerPosicionActualPreventistas">
+      <soap:operation soapAction="http://www.inteldevmobile.com.ar/ObtenerPosicionActualPreventistas" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerPosicionesDelPreventista">
+      <soap:operation soapAction="http://www.inteldevmobile.com.ar/ObtenerPosicionesDelPreventista" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerVendedoresPorDia">
+      <soap:operation soapAction="http://www.inteldevmobile.com.ar/ObtenerVendedoresPorDia" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerPrimerClienteVisitado">
+      <soap:operation soapAction="http://www.inteldevmobile.com.ar/ObtenerPrimerClienteVisitado" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerPreventistasPorEmpresa">
+      <soap:operation soapAction="http://www.inteldevmobile.com.ar/ObtenerPreventistasPorEmpresa" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SubirFotoCliente">
+      <soap:operation soapAction="http://www.inteldevmobile.com.ar/SubirFotoCliente" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ServiceSoap12" type="tns:ServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="validarConeccion">
+      <soap12:operation soapAction="http://www.inteldevmobile.com.ar/validarConeccion" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="dameDistri">
+      <soap12:operation soapAction="http://www.inteldevmobile.com.ar/dameDistri" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="bajarDatosCliente">
+      <soap12:operation soapAction="http://www.inteldevmobile.com.ar/bajarDatosCliente" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="subirDatosCliente">
+      <soap12:operation soapAction="http://www.inteldevmobile.com.ar/subirDatosCliente" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="subirNewConvenios">
+      <soap12:operation soapAction="http://www.inteldevmobile.com.ar/subirNewConvenios" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="subirNewPrecios">
+      <soap12:operation soapAction="http://www.inteldevmobile.com.ar/subirNewPrecios" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="bajarDatosMobile">
+      <soap12:operation soapAction="http://www.inteldevmobile.com.ar/bajarDatosMobile" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="subirDatosMobile">
+      <soap12:operation soapAction="http://www.inteldevmobile.com.ar/subirDatosMobile" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="bajarDatosCliente2">
+      <soap12:operation soapAction="http://www.inteldevmobile.com.ar/bajarDatosCliente2" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="bajarDatosCliente3">
+      <soap12:operation soapAction="http://www.inteldevmobile.com.ar/bajarDatosCliente3" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="bajarDatosCliente4">
+      <soap12:operation soapAction="http://www.inteldevmobile.com.ar/bajarDatosCliente4" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="subirDatosCliente2">
+      <soap12:operation soapAction="http://www.inteldevmobile.com.ar/subirDatosCliente2" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="bajarDatosMobile2">
+      <soap12:operation soapAction="http://www.inteldevmobile.com.ar/bajarDatosMobile2" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="subirDatosCliente3">
+      <soap12:operation soapAction="http://www.inteldevmobile.com.ar/subirDatosCliente3" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="bajarDatosMobile3parte1">
+      <soap12:operation soapAction="http://www.inteldevmobile.com.ar/bajarDatosMobile3parte1" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="bajarDatosMobile3parte2">
+      <soap12:operation soapAction="http://www.inteldevmobile.com.ar/bajarDatosMobile3parte2" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="bajarDatosMobileZip">
+      <soap12:operation soapAction="http://www.inteldevmobile.com.ar/bajarDatosMobileZip" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="subirDatosMobile2">
+      <soap12:operation soapAction="http://www.inteldevmobile.com.ar/subirDatosMobile2" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="subirDatosMobile3">
+      <soap12:operation soapAction="http://www.inteldevmobile.com.ar/subirDatosMobile3" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="execQueryReturn">
+      <soap12:operation soapAction="http://www.inteldevmobile.com.ar/execQueryReturn" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="actualizaFechaDownLoad">
+      <soap12:operation soapAction="http://www.inteldevmobile.com.ar/actualizaFechaDownLoad" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="borraXml">
+      <soap12:operation soapAction="http://www.inteldevmobile.com.ar/borraXml" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="hola">
+      <soap12:operation soapAction="http://www.inteldevmobile.com.ar/hola" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CunsultarPorCodigoDeBarra2">
+      <soap12:operation soapAction="http://www.inteldevmobile.com.ar/CunsultarPorCodigoDeBarra2" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="devuelvefecha">
+      <soap12:operation soapAction="http://www.inteldevmobile.com.ar/devuelvefecha" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ActualizarPosicion">
+      <soap12:operation soapAction="http://www.inteldevmobile.com.ar/ActualizarPosicion" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ActualizarPosicionTest">
+      <soap12:operation soapAction="http://www.inteldevmobile.com.ar/ActualizarPosicionTest" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ActualizarPosicionTestImei">
+      <soap12:operation soapAction="http://www.inteldevmobile.com.ar/ActualizarPosicionTestImei" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ActualizarLastDownload">
+      <soap12:operation soapAction="http://www.inteldevmobile.com.ar/ActualizarLastDownload" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ActualizarLastDownloadATodas">
+      <soap12:operation soapAction="http://www.inteldevmobile.com.ar/ActualizarLastDownloadATodas" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerPosicionActualPreventistas">
+      <soap12:operation soapAction="http://www.inteldevmobile.com.ar/ObtenerPosicionActualPreventistas" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerPosicionesDelPreventista">
+      <soap12:operation soapAction="http://www.inteldevmobile.com.ar/ObtenerPosicionesDelPreventista" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerVendedoresPorDia">
+      <soap12:operation soapAction="http://www.inteldevmobile.com.ar/ObtenerVendedoresPorDia" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerPrimerClienteVisitado">
+      <soap12:operation soapAction="http://www.inteldevmobile.com.ar/ObtenerPrimerClienteVisitado" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerPreventistasPorEmpresa">
+      <soap12:operation soapAction="http://www.inteldevmobile.com.ar/ObtenerPreventistasPorEmpresa" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SubirFotoCliente">
+      <soap12:operation soapAction="http://www.inteldevmobile.com.ar/SubirFotoCliente" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Service">
+    <wsdl:port name="ServiceSoap" binding="tns:ServiceSoap">
+      <soap:address location="http://websrv:8888/inteldevwebservice/Service.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ServiceSoap12" binding="tns:ServiceSoap12">
+      <soap12:address location="http://websrv:8888/inteldevwebservice/Service.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
