@@ -1,8 +1,9 @@
 ﻿using GeoventasPocho.Controladores;
 using GeoventasPocho.Controladores.Mapas;
+using GeoventasPocho.Factory;
+using GeoventasPocho.Factory.Pines;
 using GeoventasPocho.ServiceMobile;
 using GeoventasPocho.Vistas.ElementosMapa;
-using GeoventasPocho.Vistas.ElementosMapa.Pines;
 using GMap.NET;
 using GMap.NET.WindowsPresentation;
 using System;
@@ -182,17 +183,18 @@ namespace GeoventasPocho.Vistas.Historico
             var marcador = new GMapMarker(vendedorMapa.CoordenadaActual);
             Pin pin;
             if (vendedorMapa.CodigoEmpresa == "10")
-                pin = new PinNaranja();
+                pin = PinFactory.MakePin(TipoPin.Naranja);
             else
-                pin = new PinAzul();
+                pin = PinFactory.MakePin(TipoPin.Azul);
             pin.Tag = vendedorMapa;
-            pin.Etiqueta = vendedorMapa.Codigo;
+            pin.setEtiqueta(vendedorMapa.Codigo);
 
-            var menuItem = new MenuItem();
-            menuItem.Header = vendedorMapa.Nombre;
-            pin.Menu.Items.Add(menuItem);
-
-            pin.Menu.UpdateLayout();
+            var menuItem = new MenuItem
+            {
+                Header = vendedorMapa.Nombre
+            };
+            pin.ContextMenu.Items.Add(menuItem);
+            pin.ContextMenu.UpdateLayout();
 
             //pin.MouseDoubleClick += pin_MouseDoubleClick;
 
@@ -221,9 +223,8 @@ namespace GeoventasPocho.Vistas.Historico
             if (vendedorMapa.CoordenadaDomicilio.Lat != 0)
             {
                 var marcador = new GMapMarker(vendedorMapa.CoordenadaDomicilio);
-                var pin = new PinCasa();
+                var pin = PinFactory.MakePin(TipoPin.Casa);
                 pin.Tag = vendedorMapa;
-                pin.Etiqueta = string.Empty;
                 marcador.Shape = pin;
                 marcador.Shape.IsHitTestVisible = true;
                 marcador.Offset = new Point(-pin.Width / 2, -pin.Height);
@@ -231,9 +232,8 @@ namespace GeoventasPocho.Vistas.Historico
 
                 var menuItem = new MenuItem();
                 menuItem.Header = vendedorMapa.Calle + " " + vendedorMapa.Numero;
-                pin.Menu.Items.Add(menuItem);
-
-                pin.Menu.UpdateLayout();
+                pin.ContextMenu.Items.Add(menuItem);
+                pin.ContextMenu.UpdateLayout();
 
                 marcador.ZIndex = 3;
                 this.mapa.Markers.Add(marcador);
@@ -262,7 +262,7 @@ namespace GeoventasPocho.Vistas.Historico
 
                     var pin = ControladorMapa.CrearPinCliente(vendedor.Posiciones, cli);
 
-                    pin.Menu.UpdateLayout();
+                    pin.ContextMenu.UpdateLayout();
 
                     marcador.Shape = pin;
                     marcador.Shape.IsHitTestVisible = true;

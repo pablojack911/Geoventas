@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Media.Imaging;
 
-namespace GeoventasPocho.Vistas.ElementosMapa.Pines
+namespace GeoventasPocho.Controladores
 {
     public class ResourceHelper
     {
@@ -18,8 +18,8 @@ namespace GeoventasPocho.Vistas.ElementosMapa.Pines
         /// <returns></returns>
         public static BitmapImage LoadBitmapFromResource(string nombreImagen, Assembly assembly = null)
         {
-            var pathInApplication = @"Vistas/ElementosMapa/Pines/" + nombreImagen + ".png";
-            //var pathInApplication = @"Factory/Pines/icons/" + nombreImagen + ".png";
+            //var pathInApplication = @"Vistas/ElementosMapa/Pines/" + nombreImagen + ".png";
+            var pathInApplication = @"Factory/Pines/icons/" + nombreImagen + ".png";
             if (assembly == null)
             {
                 assembly = Assembly.GetCallingAssembly();

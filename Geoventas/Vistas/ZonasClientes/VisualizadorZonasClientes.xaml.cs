@@ -2,7 +2,6 @@
 using GeoventasPocho.Controladores.Mapas;
 using GeoventasPocho.Vistas.Converters;
 using GeoventasPocho.Vistas.ElementosMapa;
-using GeoventasPocho.Vistas.ElementosMapa.Pines;
 using GMap.NET;
 using GMap.NET.WindowsPresentation;
 using System;
@@ -244,14 +243,15 @@ namespace GeoventasPocho.Vistas.ZonasClientes
 
                 if (this.ModoSeleccion == SelectionMode.Single)
                 {
-                    var menuMover = new MenuItem();
-                    menuMover.Header = "Ubicar manualmente en el mapa";
-                    menuMover.Command = this.CmdMoverUbicacionDeClienteManualmente;
-                    menuMover.CommandParameter = marcador;
-                    pin.Menu.Items.Add(menuMover);
+                    var menuMover = new MenuItem
+                    {
+                        Header = "Ubicar manualmente en el mapa",
+                        Command = this.CmdMoverUbicacionDeClienteManualmente,
+                        CommandParameter = marcador
+                    };
+                    pin.ContextMenu.Items.Add(menuMover);
                 }
-
-                pin.Menu.UpdateLayout();
+                pin.ContextMenu.UpdateLayout();
 
                 marcador.ZIndex = 3;
 

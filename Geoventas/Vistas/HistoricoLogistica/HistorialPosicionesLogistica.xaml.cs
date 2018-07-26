@@ -1,7 +1,8 @@
 ﻿using GeoventasPocho.Controladores.Mapas;
 using GeoventasPocho.Controladores.WorkerFleteros;
+using GeoventasPocho.Factory;
+using GeoventasPocho.Factory.Pines;
 using GeoventasPocho.Vistas.ElementosMapa;
-using GeoventasPocho.Vistas.ElementosMapa.Pines;
 using GMap.NET;
 using GMap.NET.WindowsPresentation;
 using System;
@@ -201,15 +202,15 @@ namespace GeoventasPocho.Vistas.HistoricoLogistica
                 mapa.Markers.Clear();
 
             var marcador = new GMapMarker(fletero.CoordenadaActual);
-            Pin pin = new PinAzul();
+            var pin = PinFactory.MakePin(TipoPin.Azul, fletero.Codigo);
             pin.Tag = fletero;
-            pin.Etiqueta = fletero.Codigo;
 
-            var menuItem = new MenuItem();
-            menuItem.Header = fletero.Nombre;
-            pin.Menu.Items.Add(menuItem);
-
-            pin.Menu.UpdateLayout();
+            var menuItem = new MenuItem
+            {
+                Header = fletero.Nombre
+            };
+            pin.ContextMenu.Items.Add(menuItem);
+            pin.ContextMenu.UpdateLayout();
 
             //pin.MouseDoubleClick += pin_MouseDoubleClick;
 
@@ -228,9 +229,8 @@ namespace GeoventasPocho.Vistas.HistoricoLogistica
             if (fletero.CoordenadaDomicilio.Lat != 0)
             {
                 var marcador = new GMapMarker(fletero.CoordenadaDomicilio);
-                var pin = new PinCasa();
+                var pin = PinFactory.MakePin(TipoPin.Casa);
                 pin.Tag = fletero;
-                pin.Etiqueta = string.Empty;
                 marcador.Shape = pin;
                 marcador.Shape.IsHitTestVisible = true;
                 marcador.Offset = new Point(-pin.Width / 2, -pin.Height);
@@ -238,9 +238,8 @@ namespace GeoventasPocho.Vistas.HistoricoLogistica
 
                 var menuItem = new MenuItem();
                 menuItem.Header = fletero.Domicilio;
-                pin.Menu.Items.Add(menuItem);
-
-                pin.Menu.UpdateLayout();
+                pin.ContextMenu.Items.Add(menuItem);
+                pin.ContextMenu.UpdateLayout();
 
                 marcador.ZIndex = 3;
                 this.mapa.Markers.Add(marcador);

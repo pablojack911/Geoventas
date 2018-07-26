@@ -137,6 +137,10 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="DAO\AccesoDB.cs" />
+    <Compile Include="Factory\PinDecorator.cs" />
+    <Compile Include="Factory\Pines\TipoPin.cs" />
+    <Compile Include="Factory\PinFactory.cs" />
+    <Compile Include="Factory\Pines\Pin.cs" />
     <Compile Include="Service References\ServiceMobile\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -162,25 +166,7 @@
     <Compile Include="Vistas\ElementosMapa\ModoClientesRuteo.cs" />
     <Compile Include="Vistas\ElementosMapa\MotivoNoCompra.cs" />
     <Compile Include="Vistas\ElementosMapa\MotivoVisita.cs" />
-    <Compile Include="Vistas\ElementosMapa\Pines\Logistica\PinEntregaParcial.cs" />
-    <Compile Include="Vistas\ElementosMapa\Pines\Logistica\PinEntregaTotal.cs" />
-    <Compile Include="Vistas\ElementosMapa\Pines\Logistica\PinPedidoRechazado.cs" />
-    <Compile Include="Vistas\ElementosMapa\Pines\Logistica\PinSinVisitar.cs" />
-    <Compile Include="Vistas\ElementosMapa\Pines\Logistica\PinVisitaCerrado.cs" />
-    <Compile Include="Vistas\ElementosMapa\Pines\Logistica\PinVisitaPendiente.cs" />
-    <Compile Include="Vistas\ElementosMapa\Pines\Logistica\PinVolverLuego.cs" />
-    <Compile Include="Vistas\ElementosMapa\Pines\Pin.xaml.cs">
-      <DependentUpon>Pin.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Vistas\ElementosMapa\Pines\PinAmarillo.cs" />
-    <Compile Include="Vistas\ElementosMapa\Pines\PinAzul.cs" />
-    <Compile Include="Vistas\ElementosMapa\Pines\PinCasa.cs" />
-    <Compile Include="Vistas\ElementosMapa\Pines\PinFucsia.cs" />
-    <Compile Include="Vistas\ElementosMapa\Pines\PinGris.cs" />
-    <Compile Include="Vistas\ElementosMapa\Pines\PinNaranja.cs" />
-    <Compile Include="Vistas\ElementosMapa\Pines\PinRojo.cs" />
-    <Compile Include="Vistas\ElementosMapa\Pines\PinVerde.cs" />
-    <Compile Include="Vistas\ElementosMapa\Pines\ResourceHelper.cs" />
+    <Compile Include="Controladores\ResourceHelper.cs" />
     <Compile Include="Vistas\ElementosMapa\Posicion.cs" />
     <Compile Include="Vistas\ElementosMapa\Vendedor.cs" />
     <Compile Include="Vistas\ElementosMapa\Zona.cs" />
@@ -245,10 +231,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Vistas\Asistencias\AsistenciasWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Vistas\ElementosMapa\Pines\Pin.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -361,35 +343,6 @@
     <Resource Include="Vistas\PosicionesActuales\warning.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Vistas\ElementosMapa\Pines\pin_amarillo.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Vistas\ElementosMapa\Pines\pin_azul.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Vistas\ElementosMapa\Pines\pin_casa.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Vistas\ElementosMapa\Pines\pin_celeste.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Vistas\ElementosMapa\Pines\pin_fucsia.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Vistas\ElementosMapa\Pines\pin_gris.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Vistas\ElementosMapa\Pines\pin_naranja.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Vistas\ElementosMapa\Pines\pin_rojo.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Vistas\ElementosMapa\Pines\pin_verde.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-  </ItemGroup>
-  <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
       <Visible>False</Visible>
       <ProductName>Microsoft .NET Framework 4.5.2 %28x86 and x64%29</ProductName>
@@ -406,41 +359,6 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="ic_menu_search_holo_light.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Vistas\ElementosMapa\Pines\Logistica\pin_amarillo.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Vistas\ElementosMapa\Pines\Logistica\cerrado.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Vistas\ElementosMapa\Pines\Logistica\entrega_total.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Vistas\ElementosMapa\Pines\Logistica\entrega_parcial.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Vistas\ElementosMapa\Pines\Logistica\rechazado.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Vistas\ElementosMapa\Pines\Logistica\volver.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Vistas\ElementosMapa\Pines\Logistica\sin_visitar.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>
@@ -480,6 +398,81 @@
       <Isolated>False</Isolated>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Factory\Pines\icons\cerrado.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Factory\Pines\icons\entrega_parcial.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Factory\Pines\icons\entrega_total.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Factory\Pines\icons\pin_amarillo.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Factory\Pines\icons\rechazado.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Factory\Pines\icons\sin_visitar.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Factory\Pines\icons\volver.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Factory\Pines\icons\pin_azul.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Factory\Pines\icons\pin_casa.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Factory\Pines\icons\pin_celeste.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Factory\Pines\icons\pin_fucsia.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Factory\Pines\icons\pin_gris.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Factory\Pines\icons\pin_naranja.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Factory\Pines\icons\pin_rojo.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Factory\Pines\icons\pin_verde.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

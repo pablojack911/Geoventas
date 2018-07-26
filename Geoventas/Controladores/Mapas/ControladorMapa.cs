@@ -1,6 +1,6 @@
-﻿using GeoventasPocho.Vistas.ElementosMapa;
-using GeoventasPocho.Vistas.ElementosMapa.Pines;
-using GeoventasPocho.Vistas.ElementosMapa.Pines.Logistica;
+﻿using GeoventasPocho.Factory;
+using GeoventasPocho.Factory.Pines;
+using GeoventasPocho.Vistas.ElementosMapa;
 using GMap.NET;
 using GMap.NET.WindowsPresentation;
 using System;
@@ -80,7 +80,7 @@ namespace GeoventasPocho.Controladores.Mapas
 
                 var pin = ControladorMapa.CrearPinClienteFletero(posiciones, cli);
 
-                pin.Menu.UpdateLayout();
+                pin.ContextMenu.UpdateLayout();
 
                 marcador.Shape = pin;
                 marcador.Shape.IsHitTestVisible = true;
@@ -116,7 +116,7 @@ namespace GeoventasPocho.Controladores.Mapas
             return r;
         }
 
-        public static Pin CrearPinCliente(List<Posicion> posiciones, Cliente cli, bool imprimeRecorrido = true)
+        public static UserControl CrearPinCliente(List<Posicion> posiciones, Cliente cli, bool imprimeRecorrido = true)
         {
             if (posiciones == null)
                 posiciones = new List<Posicion>();
@@ -127,27 +127,26 @@ namespace GeoventasPocho.Controladores.Mapas
 
             if (cli.OrdenRecorrido == 0)
             {
-                pin = new PinGris();
-            }
+                pin = PinFactory.MakePin(TipoPin.Gris);         }
             else
             {
                 if (posiciones.Any(p => p.Cliente == cli.Codigo))
                 {
                     if (posiciones.Any(p => p.Cliente == cli.Codigo && p.MotivoNoCompra == MotivoNoCompra.Compra && p.PesosCompra > 0))
-                        pin = new PinVerde();
+                        pin = PinFactory.MakePin(TipoPin.Verde);
                     else
                     {
-                        pin = new PinRojo();
+                        pin = PinFactory.MakePin(TipoPin.Rojo);
                         motivo = posiciones.LastOrDefault(p => p.Cliente == cli.Codigo).MotivoNoCompra;
                     }
                 }
                 else
-                    pin = new PinAmarillo();
+                    pin = PinFactory.MakePin(TipoPin.Amarillo);
             }
             if (imprimeRecorrido)
-                pin.Etiqueta = cli.OrdenRecorrido.ToString();
+                pin.setEtiqueta(cli.OrdenRecorrido.ToString());
             else
-                pin.Etiqueta = cli.Codigo;
+                pin.setEtiqueta(cli.Codigo);
 
             if (motivo != MotivoNoCompra.Compra)
                 pin.ToolTip = cli.ToString() + "\n" + motivo.ToString().SplitCC();
@@ -156,8 +155,8 @@ namespace GeoventasPocho.Controladores.Mapas
 
             var menuItem = new MenuItem();
             menuItem.Header = cli.Observacion == string.Empty ? "Sin observaciones" : cli.Observacion;
-            pin.Menu.Items.Add(menuItem);
-            pin.Menu.UpdateLayout();
+            pin.ContextMenu.Items.Add(menuItem);
+            pin.ContextMenu.UpdateLayout();
 
             //if (ModoSeleccion == SelectionMode.Single)
             //{
@@ -177,7 +176,7 @@ namespace GeoventasPocho.Controladores.Mapas
             return pin;
         }
 
-        public static Pin CrearPinClienteFletero(List<Posicion> posiciones, Cliente cli, bool imprimeRecorrido = true)
+        public static UserControl CrearPinClienteFletero(List<Posicion> posiciones, Cliente cli, bool imprimeRecorrido = true)
         {
             if (posiciones == null)
                 posiciones = new List<Posicion>();
@@ -187,7 +186,7 @@ namespace GeoventasPocho.Controladores.Mapas
             {
                 if (posiciones.Any(p => p.Cliente == cli.Codigo && p.TipoVisita == TipoVisita.EntregaTotal))
                 {
-                    pin = new PinEntregaTotal();
+                    pin = PinFactory.MakePin(TipoPin.EntregaTotal);
                     motivo = TipoVisita.EntregaTotal;
                 }
                 else
@@ -196,22 +195,22 @@ namespace GeoventasPocho.Controladores.Mapas
                     switch (motivo)
                     {
                         case TipoVisita.EntregaParcial:
-                            pin = new PinEntregaParcial();
+                            pin = PinFactory.MakePin(TipoPin.EntregaParcial);
                             break;
                         case TipoVisita.Rechazado:
-                            pin = new PinPedidoRechazado();
+                            pin = PinFactory.MakePin(TipoPin.Rechazado);
                             break;
                         case TipoVisita.Cerrado:
-                            pin = new PinVisitaCerrado();
+                            pin = PinFactory.MakePin(TipoPin.Cerrado);
                             break;
                         case TipoVisita.VolverLuego:
-                            pin = new PinVolverLuego();
+                            pin = PinFactory.MakePin(TipoPin.VuelveLuego);
                             break;
                         case TipoVisita.SinVisitar:
-                            pin = new PinSinVisitar();
+                            pin = PinFactory.MakePin(TipoPin.SinVisitar);
                             break;
                         default:
-                            pin = new PinVisitaPendiente();
+                            pin = PinFactory.MakePin(TipoPin.Amarillo);
                             break;
                     }
                 }
@@ -224,19 +223,15 @@ namespace GeoventasPocho.Controladores.Mapas
                 //}
             }
             else
-                pin = new PinVisitaPendiente();
+                pin = PinFactory.MakePin(TipoPin.Amarillo);
 
-            pin.Etiqueta = cli.Codigo;
-
-            //if (motivo != MotivoVisita.EntregaTotal)
+            pin.setEtiqueta(cli.Codigo);
             pin.ToolTip = cli.ToString() + "\n" + motivo.ToString().SplitCC();
-            //else
-            //    pin.ToolTip = cli.ToString();
-
+            
             var menuItem = new MenuItem();
             menuItem.Header = cli.Observacion == string.Empty ? "Sin observaciones" : cli.Observacion;
-            pin.Menu.Items.Add(menuItem);
-            pin.Menu.UpdateLayout();
+            pin.ContextMenu.Items.Add(menuItem);
+            pin.ContextMenu.UpdateLayout();
             return pin;
         }
 

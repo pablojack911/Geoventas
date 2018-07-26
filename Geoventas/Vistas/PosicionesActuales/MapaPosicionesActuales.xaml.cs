@@ -1,8 +1,9 @@
 ﻿using GeoventasPocho.Controladores;
 using GeoventasPocho.Controladores.Mapas;
+using GeoventasPocho.Factory;
+using GeoventasPocho.Factory.Pines;
 using GeoventasPocho.ServiceMobile;
 using GeoventasPocho.Vistas.ElementosMapa;
-using GeoventasPocho.Vistas.ElementosMapa.Pines;
 using GMap.NET;
 using GMap.NET.WindowsPresentation;
 using System;
@@ -138,39 +139,47 @@ namespace GeoventasPocho.Vistas.PosicionesActuales
                 mapa.Markers.Clear();
 
             var marcador = new GMapMarker(vendedorMapa.CoordenadaActual);
-            Pin pin;
+            Pin pin=PinFactory.MakePin();
             if (vendedorMapa.CodigoEmpresa == "10")
-                pin = new PinNaranja();
+                pin.setTipo(TipoPin.Naranja);
             else
-                pin = new PinAzul();
+                pin.setTipo(TipoPin.Azul);
             pin.Tag = vendedorMapa;
-            pin.Etiqueta = vendedorMapa.Codigo;
+            pin.setEtiqueta(vendedorMapa.Codigo);
 
-            var menuItem = new MenuItem();
-            menuItem.Header = "Ver Clientes de la Ruta";
-            menuItem.Command = this.CmdVerClientesPorRuta;
-            menuItem.CommandParameter = vendedorMapa;
-            pin.Menu.Items.Add(menuItem);
+            var menuItem = new MenuItem
+            {
+                Header = "Ver Clientes de la Ruta",
+                Command = this.CmdVerClientesPorRuta,
+                CommandParameter = vendedorMapa
+            };
+            pin.ContextMenu.Items.Add(menuItem);
 
-            var menuMostrarZona = new MenuItem();
-            menuMostrarZona.Header = "Dibujar Zona";
-            menuMostrarZona.Command = this.CmdDibujarZona;
-            menuMostrarZona.CommandParameter = vendedorMapa;
-            pin.Menu.Items.Add(menuMostrarZona);
+            var menuMostrarZona = new MenuItem
+            {
+                Header = "Dibujar Zona",
+                Command = this.CmdDibujarZona,
+                CommandParameter = vendedorMapa
+            };
+            pin.ContextMenu.Items.Add(menuMostrarZona);
 
-            var menuMostrarCamino = new MenuItem();
-            menuMostrarCamino.Header = "Mostrar todos los reportes";
-            menuMostrarCamino.Command = this.CmdVerCaminoPreventista;
-            menuMostrarCamino.CommandParameter = vendedorMapa;
-            pin.Menu.Items.Add(menuMostrarCamino);
+            var menuMostrarCamino = new MenuItem
+            {
+                Header = "Mostrar todos los reportes",
+                Command = this.CmdVerCaminoPreventista,
+                CommandParameter = vendedorMapa
+            };
+            pin.ContextMenu.Items.Add(menuMostrarCamino);
 
-            var menuMostrarDomicilio = new MenuItem();
-            menuMostrarDomicilio.Header = "Mostrar domicilio del vendedor";
-            menuMostrarDomicilio.Command = this.CmdVerDomicilioVendedor;
-            menuMostrarDomicilio.CommandParameter = vendedorMapa;
-            pin.Menu.Items.Add(menuMostrarDomicilio);
+            var menuMostrarDomicilio = new MenuItem
+            {
+                Header = "Mostrar domicilio del vendedor",
+                Command = this.CmdVerDomicilioVendedor,
+                CommandParameter = vendedorMapa
+            };
+            pin.ContextMenu.Items.Add(menuMostrarDomicilio);
 
-            pin.Menu.UpdateLayout();
+            pin.ContextMenu.UpdateLayout();
 
             //pin.MouseDoubleClick += pin_MouseDoubleClick;
 
@@ -213,9 +222,8 @@ namespace GeoventasPocho.Vistas.PosicionesActuales
                 if (v.CoordenadaDomicilio.Lat != 0)
                 {
                     var marcador = new GMapMarker(v.CoordenadaDomicilio);
-                    var pin = new PinCasa();
+                    var pin = PinFactory.MakePin(TipoPin.Casa);
                     pin.Tag = v;
-                    pin.Etiqueta = string.Empty;
                     marcador.Shape = pin;
                     marcador.Shape.IsHitTestVisible = true;
                     marcador.Offset = new Point(-pin.Width / 2, -pin.Height);
@@ -223,9 +231,8 @@ namespace GeoventasPocho.Vistas.PosicionesActuales
 
                     var menuItem = new MenuItem();
                     menuItem.Header = v.Calle + " " + v.Numero;
-                    pin.Menu.Items.Add(menuItem);
-
-                    pin.Menu.UpdateLayout();
+                    pin.ContextMenu.Items.Add(menuItem);
+                    pin.ContextMenu.UpdateLayout();
 
                     marcador.ZIndex = 3;
                     this.mapa.Markers.Add(marcador);

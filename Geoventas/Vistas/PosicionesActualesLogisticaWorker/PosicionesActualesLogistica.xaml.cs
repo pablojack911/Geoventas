@@ -2,7 +2,6 @@
 using GeoventasPocho.Controladores.Mapas;
 using GeoventasPocho.Controladores.WorkerFleteros;
 using GeoventasPocho.Vistas.ElementosMapa;
-using GeoventasPocho.Vistas.ElementosMapa.Pines;
 using GMap.NET;
 using GMap.NET.WindowsPresentation;
 using System;
@@ -21,6 +20,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.ComponentModel;
+using GeoventasPocho.Factory;
+using GeoventasPocho.Factory.Pines;
 
 namespace GeoventasPocho.Vistas.PosicionesActualesLogisticaWorker
 {
@@ -140,48 +141,19 @@ namespace GeoventasPocho.Vistas.PosicionesActualesLogisticaWorker
             //if (listaDeElementos.Items.Contains(fleteroMapa) && this.modo == ModoVerMarcadores.Seleccionado)
             //    listaDeElementos.SelectedItem = fleteroMapa;
             var marcador = new GMapMarker(fleteroMapa.CoordenadaActual);
-            Pin pin = new PinAzul();
+            //Pin pin = new PinAzul();
+            //pin.Etiqueta = fleteroMapa.Codigo;
+            var pin = PinFactory.MakePin(Factory.Pines.TipoPin.Azul, fleteroMapa.Codigo);
             pin.Tag = fleteroMapa;
-            pin.Etiqueta = fleteroMapa.Codigo;
-            //if (fleteroMapa.VerClientes)
-            //{
-            //    var menuItem = new MenuItem();
-            //    menuItem.Header = "Ocultar Clientes de la Ruta";
-            //    menuItem.Command = this.CmdOcultarClientesDeLaRuta;
-            //    menuItem.CommandParameter = fleteroMapa;
-            //    pin.Menu.Items.Add(menuItem);
-            //}
-            //else
-            //{
-            //    var menuItem = new MenuItem();
-            //    menuItem.Header = "Ver Clientes de la Ruta";
-            //    menuItem.Command = this.CmdVerClientesPorRuta;
-            //    menuItem.CommandParameter = fleteroMapa;
-            //    pin.Menu.Items.Add(menuItem);
-            //}
-            //if (fleteroMapa.VerTodasLasPosiciones)
-            //{
-            //    var menuMostrarCamino = new MenuItem();
-            //    menuMostrarCamino.Header = "Ocultar reportes";
-            //    menuMostrarCamino.Command = this.CmdOcultarCamino;
-            //    menuMostrarCamino.CommandParameter = fleteroMapa;
-            //    pin.Menu.Items.Add(menuMostrarCamino);
-            //}
-            //else
-            //{
-            //    var menuMostrarCamino = new MenuItem();
-            //    menuMostrarCamino.Header = "Mostrar todos los reportes";
-            //    menuMostrarCamino.Command = this.CmdVerCaminoPreventista;
-            //    menuMostrarCamino.CommandParameter = fleteroMapa;
-            //    pin.Menu.Items.Add(menuMostrarCamino);
-            //}
-            var menuMostrarDomicilio = new MenuItem();
-            menuMostrarDomicilio.Header = "Mostrar domicilio del fletero";
-            menuMostrarDomicilio.Command = this.CmdVerDomicilioFletero;
-            menuMostrarDomicilio.CommandParameter = fleteroMapa;
-            pin.Menu.Items.Add(menuMostrarDomicilio);
+            var menuMostrarDomicilio = new MenuItem
+            {
+                Header = "Mostrar domicilio del fletero",
+                Command = this.CmdVerDomicilioFletero,
+                CommandParameter = fleteroMapa
+            };
+            pin.ContextMenu.Items.Add(menuMostrarDomicilio);
 
-            pin.Menu.UpdateLayout();
+            pin.ContextMenu.UpdateLayout();
 
             //pin.MouseDoubleClick += pin_MouseDoubleClick;
 
@@ -193,13 +165,13 @@ namespace GeoventasPocho.Vistas.PosicionesActualesLogisticaWorker
             if (fleteroMapa.VerClientes)
                 if (fleteroMapa.Clientes.Count > 0)
                     ControladorMapa.ImprimirClientesFletero(this.mapa, fleteroMapa.Posiciones, fleteroMapa.Clientes);
-                //else
-                //    this.VerClientesDelVendedor(fleteroMapa);
+            //else
+            //    this.VerClientesDelVendedor(fleteroMapa);
             if (fleteroMapa.VerTodasLasPosiciones)
                 if (fleteroMapa.Posiciones.Count > 0)
                     ControladorMapa.ImprimirCamino(this.mapa, fleteroMapa.Posiciones);
-                //else
-                //    this.VerCaminoDelVendedor(fleteroMapa);
+            //else
+            //    this.VerCaminoDelVendedor(fleteroMapa);
             if (fleteroMapa.VerDomicilioDelFletero)
                 this.VerDomicilioFletero(fleteroMapa);
 
@@ -228,19 +200,19 @@ namespace GeoventasPocho.Vistas.PosicionesActualesLogisticaWorker
                 if (f.CoordenadaDomicilio.Lat != 0)
                 {
                     var marcador = new GMapMarker(f.CoordenadaDomicilio);
-                    var pin = new PinCasa();
+                    var pin = PinFactory.MakePin(TipoPin.Casa);
                     pin.Tag = f;
-                    pin.Etiqueta = string.Empty;
                     marcador.Shape = pin;
                     marcador.Shape.IsHitTestVisible = true;
                     marcador.Offset = new Point(-pin.Width / 2, -pin.Height);
                     pin.ToolTip = "Casa de " + f.Nombre;
 
-                    var menuItem = new MenuItem();
-                    menuItem.Header = f.Domicilio;
-                    pin.Menu.Items.Add(menuItem);
-
-                    pin.Menu.UpdateLayout();
+                    var menuItem = new MenuItem
+                    {
+                        Header = f.Domicilio
+                    };
+                    pin.ContextMenu.Items.Add(menuItem);
+                    pin.ContextMenu.UpdateLayout();
 
                     marcador.ZIndex = 3;
                     this.mapa.Markers.Add(marcador);

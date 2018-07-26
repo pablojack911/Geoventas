@@ -171,7 +171,7 @@ namespace GeoventasPocho.Vistas.ActividadesClientes
                 //    pin.Menu.Items.Add(menuMover);
                 //}
 
-                pin.Menu.UpdateLayout();
+                pin.ContextMenu.UpdateLayout();
 
                 marcador.ZIndex = 3;
 
