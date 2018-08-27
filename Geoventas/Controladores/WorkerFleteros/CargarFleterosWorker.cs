@@ -52,6 +52,7 @@ namespace GeoventasPocho.Controladores.WorkerFleteros
                     var consulta = con.CreateCommand();
                     consulta.CommandType = CommandType.Text;
                     consulta.CommandText = query;
+                    consulta.CommandTimeout = 3600;
                     consulta.Parameters.Add(new SqlParameter("@pFecha", fecha));
                     con.Open();
                     using (var dr = consulta.ExecuteReader())

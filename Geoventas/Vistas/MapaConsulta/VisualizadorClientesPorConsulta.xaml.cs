@@ -1,5 +1,6 @@
 ﻿using GeoventasPocho.Controladores;
 using GeoventasPocho.Controladores.Mapas;
+using GeoventasPocho.Factory;
 using GeoventasPocho.Vistas.ElementosMapa;
 using GMap.NET;
 using GMap.NET.WindowsPresentation;
@@ -27,15 +28,29 @@ namespace GeoventasPocho.Vistas.MapaConsulta
     {
 
 
-        public ObservableCollection<Cliente> listaClientes
+        //public ObservableCollection<Cliente> listaClientes
+        //{
+        //    get { return (ObservableCollection<Cliente>)GetValue(listaClientesProperty); }
+        //    set { SetValue(listaClientesProperty, value); }
+        //}
+
+        //// Using a DependencyProperty as the backing store for listaClientes.  This enables animation, styling, binding, etc...
+        //public static readonly DependencyProperty listaClientesProperty =
+        //    DependencyProperty.Register("listaClientes", typeof(ObservableCollection<Cliente>), typeof(VisualizadorClientesPorConsulta));
+
+
+
+        public ObservableCollection<TrackingFletero> listaTracking
         {
-            get { return (ObservableCollection<Cliente>)GetValue(listaClientesProperty); }
-            set { SetValue(listaClientesProperty, value); }
+            get { return (ObservableCollection<TrackingFletero>)GetValue(listaTrackingProperty); }
+            set { SetValue(listaTrackingProperty, value); }
         }
 
-        // Using a DependencyProperty as the backing store for listaClientes.  This enables animation, styling, binding, etc...
-        public static readonly DependencyProperty listaClientesProperty =
-            DependencyProperty.Register("listaClientes", typeof(ObservableCollection<Cliente>), typeof(VisualizadorClientesPorConsulta));
+        // Using a DependencyProperty as the backing store for listaTracking.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty listaTrackingProperty =
+            DependencyProperty.Register("listaTracking", typeof(ObservableCollection<TrackingFletero>), typeof(VisualizadorClientesPorConsulta));
+
+
 
         public string query
         {
@@ -57,23 +72,53 @@ namespace GeoventasPocho.Vistas.MapaConsulta
 
         }
 
+        //private void btnConsultar_Click(object sender, RoutedEventArgs e)
+        //{
+        //    try
+        //    {
+        //        if (this.query != string.Empty)
+        //        {
+        //            this.listaClientes = new ObservableCollection<Cliente>(ControladorClientes.ProcesarConsulta(this.query));
+        //            var listaMarcadores = new List<GMapMarker>();
+        //            foreach (var cli in this.listaClientes)
+        //            {
+        //                var marcador = new GMapMarker(cli.Coordenada.Value);
+
+        //                var pin = ControladorMapa.CrearPinCliente(null, cli);
+
+        //                marcador.Shape = pin;
+        //                marcador.Shape.IsHitTestVisible = true;
+        //                marcador.Offset = new Point(-pin.Width / 2, -pin.Height);
+        //                marcador.ZIndex = 3;
+        //                listaMarcadores.Add(marcador);
+        //            }
+        //            this.mapa.ItemsSource = listaMarcadores;
+        //            ControladorMapa.RefrescarVista(this.mapa);
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show(ex.Message);
+        //    }
+        //}
+
         private void btnConsultar_Click(object sender, RoutedEventArgs e)
         {
             try
             {
                 if (this.query != string.Empty)
                 {
-                    this.listaClientes = new ObservableCollection<Cliente>(ControladorClientes.ProcesarConsulta(this.query));
+                    this.listaTracking = new ObservableCollection<TrackingFletero>(ControladorClientes.ProcesarConsultaTracking(this.query));
                     var listaMarcadores = new List<GMapMarker>();
-                    foreach (var cli in this.listaClientes)
+                    foreach (var item in this.listaTracking)
                     {
-                        var marcador = new GMapMarker(cli.Coordenada.Value);
-
-                        var pin = ControladorMapa.CrearPinCliente(null, cli);
-
+                        var puntoPosicion = new PointLatLng(item.Latitud, item.Longitud);
+                        //var marcador = ControladorMapa.CrearPuntoPosicion(puntoPosicion);
+                        var marcador = ControladorMapa.CrearPuntoPosicion(puntoPosicion);
+                        var pin = PinFactory.MakePin(Factory.Pines.TipoPin.Azul, item.Usuario);
+                        pin.ToolTip = item.Fecha;
                         marcador.Shape = pin;
                         marcador.Shape.IsHitTestVisible = true;
-                        marcador.Offset = new Point(-pin.Width / 2, -pin.Height);
                         marcador.ZIndex = 3;
                         listaMarcadores.Add(marcador);
                     }
@@ -91,8 +136,6 @@ namespace GeoventasPocho.Vistas.MapaConsulta
         {
             try
             {
-
-
                 if (this.lstListaClientes.SelectedIndex != -1)
                 {
                     var item = (Cliente)this.lstListaClientes.SelectedItem;

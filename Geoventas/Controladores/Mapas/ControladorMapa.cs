@@ -24,7 +24,7 @@ namespace GeoventasPocho.Controladores.Mapas
             var forma = new Ellipse() { Height = 10, Width = 10 };
             if (hora != null)
                 forma.ToolTip = hora;
-            forma.Fill = colorPunto == null ? Brushes.OrangeRed : colorPunto;
+            forma.Fill = colorPunto ?? Brushes.OrangeRed;
             marcador.Shape = forma;
             marcador.Shape.IsHitTestVisible = true;
             marcador.Offset = new Point(-forma.Width / 2, -forma.Height);

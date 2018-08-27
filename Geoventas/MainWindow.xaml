@@ -72,17 +72,17 @@
                    Header="Historial"
                    Click="mnuPosicionHistoricaLogistica_Click"/>
             </MenuItem>
-            <!--<MenuItem
+            <MenuItem
                 Header="Consultar">
-                --><!--<MenuItem
+                <!--<MenuItem
                     Name="mnuTotalReportesDelDia"
                     Header="Total reportes en el día"
-                    Click="mnuTotalReportesDelDia_Click"/>--><!--
+                    Click="mnuTotalReportesDelDia_Click"/>-->
                 <MenuItem
                     Name="mnuCreaConsulta"
                     Header="Mostrar clientes por query a Fox"
                     Click="mnuCreaConsulta_Click"/>
-            </MenuItem>-->
+            </MenuItem>
             <!--<MenuItem
                 Header="Cargar">
                 <MenuItem

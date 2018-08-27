@@ -1,4 +1,5 @@
-﻿using GeoventasPocho.DAO;
+﻿using GeoventasPocho.Controladores.Mapas;
+using GeoventasPocho.DAO;
 using GeoventasPocho.Vistas.ElementosMapa;
 using GeoventasPocho.Vistas.Geocoder;
 using GMap.NET;
@@ -6,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.OleDb;
+using System.Data.SqlClient;
 using System.Globalization;
 using System.Linq;
 using System.Text;
@@ -74,6 +76,66 @@ namespace GeoventasPocho.Controladores
                 }
             }
             return clientes;
+        }
+
+        public static List<TrackingFletero> ProcesarConsultaTracking(string consulta)
+        {
+            //var lista = new List<Cliente>();
+            var lista = new List<TrackingFletero>();
+            var listaEnCuadrante = new List<TrackingFletero>();
+            var zona = new List<PointLatLng>()
+            {
+                new PointLatLng(-38.095119, -57.605652),
+                new PointLatLng(-38.095119,-57.600030),
+                new PointLatLng(-38.097078,-57.605652),
+                new PointLatLng(-38.097078,-57.600030)
+            };
+            try
+            {
+                using (var connection = new SqlConnection(AccesoDB.SqlLogistica))
+                {
+                    var command = AccesoDB.CrearComando(connection, consulta, CommandType.Text);
+                    connection.Open();
+                    //AccesoDB.ComandosFox(connection);
+                    using (var dr = command.ExecuteReader())
+                    {
+                        //while (dr.Read())
+                        //{
+                        //    var cliente = new Cliente();
+
+                        //    cliente.Codigo = dr.GetString(0).Trim();
+                        //    cliente.Calle = dr.GetString(1).Trim();
+                        //    cliente.Numero = Convert.ToString(dr.GetValue(2));
+                        //    var lat = Convert.ToDouble(dr.GetValue(3), CultureInfo.CurrentCulture);
+                        //    var lng = Convert.ToDouble(dr.GetValue(4), CultureInfo.CurrentCulture);
+                        //    cliente.Coordenada = new PointLatLng(lat, lng);
+                        //    cliente.Localidad = dr.GetString(5).Trim();
+                        //    lista.Add(cliente);
+                        //}
+                        while (dr.Read())
+                        {
+                            var Pos = new TrackingFletero()
+                            {
+                                Usuario = dr.GetString(1).Trim(),
+                                Latitud = Convert.ToDouble(dr.GetValue(5), CultureInfo.CurrentCulture),
+                                Longitud = Convert.ToDouble(dr.GetValue(6), CultureInfo.CurrentCulture),
+                                Fecha = dr.GetDateTime(4)
+                            };
+                            lista.Add(Pos);
+                        }
+                    }
+                    foreach (var item in lista)
+                    {
+                        if (ControladorMapa.DentroDeZona(zona, item.Latitud, item.Longitud))
+                            listaEnCuadrante.Add(item);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return listaEnCuadrante;
         }
 
         public static List<Cliente> ProcesarConsulta(string consulta)
